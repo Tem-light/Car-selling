@@ -4,17 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\hasMany;
 
-class FuelType extends Model
+class CarModel extends Model
 {
     use HasFactory;
+
     public $timestamps = false;
+
     protected $fillable = [
-        'name'
+        'name',
+        'maker_id'
     ];
-    public function Cars()
+
+    public function maker():hasMany
     {
-        return $this->hasMany(Car::class);
+        return $this->hasMany(Maker::class);
     }
 }

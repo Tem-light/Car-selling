@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\hasMany;
 
 class State extends Model
 {
@@ -12,4 +13,12 @@ class State extends Model
     protected $fillable = [
         'name'
     ];
+    public function Cities():hasMany
+    {
+        return $this->hasMany(City::class);
+    }
+    public function Cars():hasMany
+    {
+        return $this->hasMany(Car::class);
+    }
 }
