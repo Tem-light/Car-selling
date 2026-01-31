@@ -46,7 +46,7 @@ class Car extends Model
     }
     public function PrimaryImage():HasOne
     {
-        return $this->hasOne(CarImages::class)
+        return $this->hasOne(CarImage::class)
                 ->oldestOfMany('position');
     }
     public function images():HasMany
@@ -66,7 +66,7 @@ class Car extends Model
     {
         return $this->belongsTo(Maker::class);
     }
-    public function Model():belongsTo
+    public function carModel():belongsTo
     {
         return $this->belongsTo(CarModel::class);
     }
@@ -77,5 +77,9 @@ class Car extends Model
     public function City():belongsTo
     {
         return $this->belongsTo(City::class);
+    }
+    public function getCreateDate():string
+    {
+        return ( new \Carbon\Carbon($this->created_at))->format('y-m-d');
     }
 }

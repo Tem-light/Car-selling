@@ -16,6 +16,7 @@ use App\Http\Controllers\carController;
 |
 */
 Route::get('/cars/search', [carController::class, 'search'])->name('cars.search');
+Route::get('/cars/watchlist', [carController::class, 'watchlist'])->name('cars.watchlist');
 Route::resource('cars', carController::class);
 
 Route::get('/', [homeController::class, 'index']);

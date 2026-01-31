@@ -4,6 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Car;
+use App\Models\User;
+use App\Models\Maker;
+use App\Models\Model;
+use App\Models\CarImages;
+use App\Models\City;
+use App\Models\CarType;
+use App\Models\FuelType;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Pagination\Paginator;
 
 class carController extends Controller
 {
@@ -14,7 +23,10 @@ class carController extends Controller
      */
     public function index()
     {
-        return view('car.index');
+        $cars=User::find(51)->cars()->with(['primaryImage','maker','carModel'])->orderBy('created_at','desc')->get();
+        return view('car.index',[
+            'cars'=>$cars
+        ]);
         
     }
 
@@ -37,7 +49,9 @@ class carController extends Controller
      */
     public function show(Car $car)
     {
-        return view('car.show');
+        return view('car.show',[
+            'car'=>$car,
+        ]);
     }
 
     /**
@@ -71,6 +85,23 @@ class carController extends Controller
     }
     public function search()
     {
-        return view('car.search');
+        $query=Car::where('published_at','<',now())->with(['primaryImage','city','carType','fuelType','maker','carModel'])->orderBy('published_at','desc');
+        $carCount=$query->count();
+        // $cars=$query->limit(20)->get();
+        $cars=$query->paginate(10)->withQueryString();
+        return view('car.search',[
+            'cars'=>$cars
+        ]);
     }   
+    public function watchlist()
+    {
+        $user=User::find(51);
+            $cars = $user->favoriteCars()
+            ->with(['primaryImage','city','carType','fuelType','maker','carModel'])
+            ->orderBy('published_at','desc')
+            ->paginate(10);
+        return view('car.watchlist',[
+            'cars'=>$cars
+        ]);
+    }
 }

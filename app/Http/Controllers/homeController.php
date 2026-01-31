@@ -6,17 +6,21 @@ use App\Models\Maker;
 use App\Models\User;
 use App\Models\Model;
 use App\Models\CarImages;
-
+use App\Models\City;
+use App\Models\CarType;
+use App\Models\FuelType;
 use Illuminate\Http\Request;
 
 class homeController extends Controller
 {
     public function index()
     {
-      User::find(1)->favoriteCars()->attach([4]);
+        //render home page
+        $cars=Car::where('published_at','<',now())->with(['primaryImage','city','carType','fuelType','maker','carModel'])->orderBy('published_at','desc')->limit(20)->get();
 
-
-        return view('index');
+        return view('index',[
+            'cars'=>$cars,
+        ]);
 
     }
 }
