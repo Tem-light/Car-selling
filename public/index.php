@@ -33,6 +33,25 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
 
 require __DIR__.'/../vendor/autoload.php';
 
+// Ensure App and Database namespaces are loadable (fallback when Composer autoload misses them)
+spl_autoload_register(function ($class) {
+    $base = null;
+    if (strpos($class, 'App\\') === 0) {
+        $base = __DIR__ . '/../app/' . str_replace('\\', '/', substr($class, 4));
+    } elseif (strpos($class, 'Database\\') === 0) {
+        $rel = str_replace('\\', '/', substr($class, 10));
+        $parts = explode('/', $rel);
+        $parts[0] = strtolower($parts[0]);
+        $base = __DIR__ . '/../database/' . implode('/', $parts);
+    }
+    if ($base !== null) {
+        $path = $base . '.php';
+        if (file_exists($path)) {
+            require_once $path;
+        }
+    }
+}, true, true);
+
 /*
 |--------------------------------------------------------------------------
 | Run The Application

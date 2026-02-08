@@ -10,8 +10,9 @@ class CarImage extends Model
     use HasFactory;
     public $timestamps = false;
     protected $fillable = [
+        'car_id',
         'image_path',
-        'position'
+        'position',
     ];
     public function Car():belongsTo
     {

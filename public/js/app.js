@@ -89,13 +89,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  const initMobileNavbar = () => {
-    const btnToggle = document.querySelector(".btn-navbar-toggle");
+ function initMobileNavbar() {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-    btnToggle.onclick = () => {
-      document.body.classList.toggle("navbar-opened");
+    if (!mobileMenuBtn || !mobileMenu) return;
+
+    mobileMenuBtn.onclick = () => {
+        mobileMenu.classList.toggle('open');
     };
-  };
+}
+
 
   const imageCarousel = () => {
     const carousel = document.querySelector('.car-images-carousel');

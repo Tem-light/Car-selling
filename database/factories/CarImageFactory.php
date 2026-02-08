@@ -20,10 +20,9 @@ class CarImageFactory extends Factory
     public function definition()
     {
         return [
-            'image_path' => $this->faker->imageUrl(),
-            'position' => function(array $attributes) {
-                return Car::find($attributes['car_id'])->images()->count() + 1;
-            },
+            'car_id' => Car::inRandomOrder()->first()->id,
+            'image_path' => $this->faker->imageUrl(800, 600, 'cars'),
+            'position' => (string) $this->faker->numberBetween(1, 5),
         ];
     }
 }

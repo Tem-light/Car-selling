@@ -1,349 +1,125 @@
-<!-- Find a car form -->
-      <section class="find-a-car">
-        <div class="container">
-          <form
-            action="{{route('cars.search')}}"
-            method="GET"
-            class="find-a-car-form card flex p-medium"
-          >
-            <div class="find-a-car-inputs">
-              <div>
-                <select id="makerSelect" name="maker_id">
-                  <option value="">Maker</option>
-                  <option value="4">Chevrolet</option>
-                  <option value="2">Ford</option>
-                  <option value="3">Honda</option>
-                  <option value="6">Lexus</option>
-                  <option value="5">Nissan</option>
-                  <option value="1">Toyota</option>
-                </select>
-              </div>
-              <div>
-                <select id="modelSelect" name="model_id">
-                  <option value="" style="display: block">Model</option>
-                  <option value="50" data-parent="5" style="display: none">
-                    370Z
-                  </option>
-                  <option value="6" data-parent="1" style="display: none">
-                    4Runner
-                  </option>
-                  <option value="22" data-parent="3" style="display: none">
-                    Accord
-                  </option>
-                  <option value="41" data-parent="5" style="display: none">
-                    Altima
-                  </option>
-                  <option value="23" data-parent="3" style="display: none">
-                    CR-V
-                  </option>
-                  <option value="37" data-parent="4" style="display: none">
-                    Camaro
-                  </option>
-                  <option value="1" data-parent="1" style="display: none">
-                    Camry
-                  </option>
-                  <option value="21" data-parent="3" style="display: none">
-                    Civic
-                  </option>
-                  <option value="36" data-parent="4" style="display: none">
-                    Colorado
-                  </option>
-                  <option value="2" data-parent="1" style="display: none">
-                    Corolla
-                  </option>
-                  <option value="35" data-parent="4" style="display: none">
-                    Cruze
-                  </option>
-                  <option value="54" data-parent="6" style="display: none">
-                    ES350
-                  </option>
-                  <option value="17" data-parent="2" style="display: none">
-                    Edge
-                  </option>
-                  <option value="32" data-parent="4" style="display: none">
-                    Equinox
-                  </option>
-                  <option value="12" data-parent="2" style="display: none">
-                    Escape
-                  </option>
-                  <option value="18" data-parent="2" style="display: none">
-                    Expedition
-                  </option>
-                  <option value="13" data-parent="2" style="display: none">
-                    Explorer
-                  </option>
-                  <option value="11" data-parent="2" style="display: none">
-                    F-150
-                  </option>
-                  <option value="28" data-parent="3" style="display: none">
-                    Fit
-                  </option>
-                  <option value="20" data-parent="2" style="display: none">
-                    Flex
-                  </option>
-                  <option value="47" data-parent="5" style="display: none">
-                    Frontier
-                  </option>
-                  <option value="15" data-parent="2" style="display: none">
-                    Fusion
-                  </option>
-                  <option value="58" data-parent="6" style="display: none">
-                    GS350
-                  </option>
-                  <option value="57" data-parent="6" style="display: none">
-                    GX460
-                  </option>
-                  <option value="26" data-parent="3" style="display: none">
-                    HR-V
-                  </option>
-                  <option value="3" data-parent="1" style="display: none">
-                    Highlander
-                  </option>
-                  <option value="56" data-parent="6" style="display: none">
-                    IS300
-                  </option>
-                  <option value="34" data-parent="4" style="display: none">
-                    Impala
-                  </option>
-                  <option value="29" data-parent="3" style="display: none">
-                    Insight
-                  </option>
-                  <option value="55" data-parent="6" style="display: none">
-                    LS500
-                  </option>
-                  <option value="60" data-parent="6" style="display: none">
-                    LX570
-                  </option>
-                  <option value="33" data-parent="4" style="display: none">
-                    Malibu
-                  </option>
-                  <option value="44" data-parent="5" style="display: none">
-                    Maxima
-                  </option>
-                  <option value="45" data-parent="5" style="display: none">
-                    Murano
-                  </option>
-                  <option value="14" data-parent="2" style="display: none">
-                    Mustang
-                  </option>
-                  <option value="59" data-parent="6" style="display: none">
-                    NX300
-                  </option>
-                  <option value="25" data-parent="3" style="display: none">
-                    Odyssey
-                  </option>
-                  <option value="30" data-parent="3" style="display: none">
-                    Passport
-                  </option>
-                  <option value="46" data-parent="5" style="display: none">
-                    Pathfinder
-                  </option>
-                  <option value="24" data-parent="3" style="display: none">
-                    Pilot
-                  </option>
-                  <option value="5" data-parent="1" style="display: none">
-                    Prius
-                  </option>
-                  <option value="4" data-parent="1" style="display: none">
-                    RAV4
-                  </option>
-                  <option value="62" data-parent="6" style="display: none">
-                    RC350
-                  </option>
-                  <option value="53" data-parent="6" style="display: none">
-                    RX350
-                  </option>
-                  <option value="51" data-parent="6" style="display: none">
-                    RX400
-                  </option>
-                  <option value="52" data-parent="6" style="display: none">
-                    RX450
-                  </option>
-                  <option value="16" data-parent="2" style="display: none">
-                    Ranger
-                  </option>
-                  <option value="27" data-parent="3" style="display: none">
-                    Ridgeline
-                  </option>
-                  <option value="43" data-parent="5" style="display: none">
-                    Rogue
-                  </option>
-                  <option value="42" data-parent="5" style="display: none">
-                    Sentra
-                  </option>
-                  <option value="10" data-parent="1" style="display: none">
-                    Sequoia
-                  </option>
-                  <option value="7" data-parent="1" style="display: none">
-                    Sienna
-                  </option>
-                  <option value="31" data-parent="4" style="display: none">
-                    Silverado
-                  </option>
-                  <option value="40" data-parent="4" style="display: none">
-                    Suburban
-                  </option>
-                  <option value="39" data-parent="4" style="display: none">
-                    Tahoe
-                  </option>
-                  <option value="19" data-parent="2" style="display: none">
-                    Taurus
-                  </option>
-                  <option value="48" data-parent="5" style="display: none">
-                    Titan
-                  </option>
-                  <option value="38" data-parent="4" style="display: none">
-                    Traverse
-                  </option>
-                  <option value="9" data-parent="1" style="display: none">
-                    Tundra
-                  </option>
-                  <option value="61" data-parent="6" style="display: none">
-                    UX200
-                  </option>
-                  <option value="49" data-parent="5" style="display: none">
-                    Versa
-                  </option>
-                  <option value="8" data-parent="1" style="display: none">
-                    Yaris
-                  </option>
-                </select>
-              </div>
-              <div>
-                <select id="stateSelect" name="state_id">
-                  <option value="">State/Region</option>
-                  <option value="4">California</option>
-                  <option value="2">Kansas</option>
-                  <option value="1">Ohio</option>
-                  <option value="5">Oregon</option>
-                </select>
-              </div>
-              <div>
-                <select id="citySelect" name="city_id">
-                  <option value="" style="display: block">City</option>
-                  <option value="3" data-parent="1" style="display: none">
-                    Carmelstad
-                  </option>
-                  <option value="8" data-parent="2" style="display: none">
-                    Cormierville
-                  </option>
-                  <option value="14" data-parent="3" style="display: none">
-                    Dareville
-                  </option>
-                  <option value="13" data-parent="3" style="display: none">
-                    Demarcotown
-                  </option>
-                  <option value="10" data-parent="2" style="display: none">
-                    Doylebury
-                  </option>
-                  <option value="18" data-parent="4" style="display: none">
-                    East Alfonso
-                  </option>
-                  <option value="9" data-parent="2" style="display: none">
-                    East Ladarius
-                  </option>
-                  <option value="23" data-parent="5" style="display: none">
-                    Kelvinmouth
-                  </option>
-                  <option value="24" data-parent="5" style="display: none">
-                    Kemmerchester
-                  </option>
-                  <option value="25" data-parent="5" style="display: none">
-                    Kunzeview
-                  </option>
-                  <option value="6" data-parent="2" style="display: none">
-                    Lake Kelsi
-                  </option>
-                  <option value="16" data-parent="4" style="display: none">
-                    Larsonview
-                  </option>
-                  <option value="2" data-parent="1" style="display: none">
-                    Lindstad
-                  </option>
-                  <option value="5" data-parent="1" style="display: none">
-                    Loganshire
-                  </option>
-                  <option value="15" data-parent="3" style="display: none">
-                    Maximilliaberg
-                  </option>
-                  <option value="7" data-parent="2" style="display: none">
-                    Monroeside
-                  </option>
-                  <option value="17" data-parent="4" style="display: none">
-                    Muellerville
-                  </option>
-                  <option value="12" data-parent="3" style="display: none">
-                    New Bennieville
-                  </option>
-                  <option value="1" data-parent="1" style="display: none">
-                    New Britneystad
-                  </option>
-                  <option value="21" data-parent="5" style="display: none">
-                    New Devenmouth
-                  </option>
-                  <option value="22" data-parent="5" style="display: none">
-                    North Alvah
-                  </option>
-                  <option value="20" data-parent="4" style="display: none">
-                    Port Johnson
-                  </option>
-                  <option value="19" data-parent="4" style="display: none">
-                    South Shanellefort
-                  </option>
-                  <option value="11" data-parent="3" style="display: none">
-                    Toyport
-                  </option>
-                  <option value="4" data-parent="1" style="display: none">
-                    West Lulu
-                  </option>
-                </select>
-              </div>
-              <div>
-                <select name="car_type_id">
-                  <option value="">Type</option>
-                  <option value="2">Hatchback</option>
-                  <option value="6">Jeep</option>
-                  <option value="5">Minivan</option>
-                  <option value="4">Pickup Truck</option>
-                  <option value="3">SUV</option>
-                  <option value="1">Sedan</option>
-                </select>
-              </div>
-              <div>
-                <input type="number" placeholder="Year From" name="year_from" />
-              </div>
-              <div>
-                <input type="number" placeholder="Year To" name="year_to" />
-              </div>
-              <div>
-                <input
-                  type="number"
-                  placeholder="Price From"
-                  name="price_from"
-                />
-              </div>
-              <div>
-                <input type="number" placeholder="Price To" name="price_to" />
-              </div>
-              <div>
-                <select name="fuel_type_id">
-                  <option value="">Fuel Type</option>
-                  <option value="2">Diesel</option>
-                  <option value="3">Electric</option>
-                  <option value="1">Gasoline</option>
-                  <option value="4">Hybrid</option>
-                </select>
-              </div>
+@props(['makers', 'states', 'carTypes', 'fuelTypes'])
+
+<section class="relative z-10 -mt-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl p-6 md:p-10 border border-white/20">
+        <h2 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary mb-6 text-center md:text-left">
+            Find Your Next Car
+        </h2>
+        <form action="{{ route('cars.search') }}" method="GET">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Maker -->
+                <div class="space-y-1">
+                    <label class="text-sm font-medium text-gray-700 ml-1">Example: Toyota</label>
+                    <select id="searchMaker" name="maker_id" class="w-full rounded-xl border-gray-200 focus:border-primary focus:ring-primary shadow-sm p-3 bg-white/50 transition-all hover:bg-white">
+                        <option value="">All Makers</option>
+                        @foreach($makers as $maker)
+                            <option value="{{ $maker->id }}">{{ $maker->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <!-- Model -->
+                <div class="space-y-1">
+                    <label class="text-sm font-medium text-gray-700 ml-1">Example: Camry</label>
+                    <select id="searchModel" name="car_model_id" disabled class="w-full rounded-xl border-gray-200 focus:border-primary focus:ring-primary shadow-sm p-3 bg-gray-100/50 transition-all disabled:opacity-50">
+                        <option value="">All Models</option>
+                    </select>
+                </div>
+
+                <!-- State -->
+                <div class="space-y-1">
+                    <label class="text-sm font-medium text-gray-700 ml-1">State</label>
+                    <select id="searchState" name="state_id" class="w-full rounded-xl border-gray-200 focus:border-primary focus:ring-primary shadow-sm p-3 bg-white/50 transition-all hover:bg-white">
+                        <option value="">All Locations</option>
+                        @foreach($states as $state)
+                            <option value="{{ $state->id }}">{{ $state->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <!-- City -->
+                <div class="space-y-1">
+                    <label class="text-sm font-medium text-gray-700 ml-1">City</label>
+                    <select id="searchCity" name="city_id" disabled class="w-full rounded-xl border-gray-200 focus:border-primary focus:ring-primary shadow-sm p-3 bg-gray-100/50 transition-all disabled:opacity-50">
+                        <option value="">All Cities</option>
+                    </select>
+                </div>
+
+                <!-- Car Type -->
+                <div class="space-y-1">
+                    <label class="text-sm font-medium text-gray-700 ml-1">Body Type</label>
+                    <select name="car_type_id" class="w-full rounded-xl border-gray-200 focus:border-primary focus:ring-primary shadow-sm p-3 bg-white/50 transition-all hover:bg-white">
+                        <option value="">All Types</option>
+                        @foreach($carTypes as $type)
+                            <option value="{{ $type->id }}">{{ $type->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <!-- Price Range -->
+                <div class="space-y-1">
+                    <label class="text-sm font-medium text-gray-700 ml-1">Price Range</label>
+                    <div class="flex space-x-2">
+                        <input type="number" name="price_from" placeholder="Min" class="w-1/2 rounded-xl border-gray-200 focus:border-primary focus:ring-primary shadow-sm p-3 bg-white/50">
+                        <input type="number" name="price_to" placeholder="Max" class="w-1/2 rounded-xl border-gray-200 focus:border-primary focus:ring-primary shadow-sm p-3 bg-white/50">
+                    </div>
+                </div>
+
+                <!-- Year Range -->
+                <div class="space-y-1">
+                    <label class="text-sm font-medium text-gray-700 ml-1">Year Range</label>
+                    <div class="flex space-x-2">
+                         <input type="number" name="year_from" placeholder="From" class="w-1/2 rounded-xl border-gray-200 focus:border-primary focus:ring-primary shadow-sm p-3 bg-white/50">
+                         <input type="number" name="year_to" placeholder="To" class="w-1/2 rounded-xl border-gray-200 focus:border-primary focus:ring-primary shadow-sm p-3 bg-white/50">
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <div class="space-y-1">
+                    <label class="block text-sm font-medium text-transparent ml-1">Search</label>
+                    <button type="submit" class="w-full bg-gradient-to-r from-primary to-secondary hover:from-indigo-600 hover:to-emerald-600 text-white font-bold py-3 px-4 rounded-xl shadow-lg shadow-indigo-500/30 transition-all transform hover:scale-105 flex justify-center items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                        Search Cars
+                    </button>
+                </div>
             </div>
-            <div>
-              <button type="button" class="btn btn-find-a-car-reset">
-                Reset
-              </button>
-              <button class="btn btn-primary btn-find-a-car-submit">
-                Search
-              </button>
-            </div>
-          </form>
-        </div>
-      </section>
-      <!--/ Find a car form -->
+        </form>
+    </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+$(document).ready(function () {
+    // Models
+    $('#searchMaker').on('change', function () {
+        const makerId = $(this).val();
+        const $model = $('#searchModel');
+        $model.html('<option value="">All Models</option>').prop('disabled', true);
+        if (makerId) {
+            $.get('/cars/models/' + makerId, function (models) {
+                $.each(models, function (i, model) {
+                    $model.append($('<option>', { value: model.id, text: model.name }));
+                });
+                $model.prop('disabled', false);
+            });
+        }
+    });
+
+    // Cities
+    $('#searchState').on('change', function () {
+        const stateId = $(this).val();
+        const $city = $('#searchCity');
+        $city.html('<option value="">All Cities</option>').prop('disabled', true);
+        if (stateId) {
+            $.get('/cars/cities/' + stateId, function (cities) {
+                $.each(cities, function (i, city) {
+                    $city.append($('<option>', { value: city.id, text: city.name }));
+                });
+                $city.prop('disabled', false);
+            });
+        }
+    });
+});
+</script>

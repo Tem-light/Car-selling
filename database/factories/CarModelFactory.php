@@ -2,9 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Maker;
 use Illuminate\Database\Eloquent\Factories\Factory;
+
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\CarModel>
  */
 class CarModelFactory extends Factory
 {
@@ -16,8 +18,8 @@ class CarModelFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->word()
-
+            'maker_id' => Maker::inRandomOrder()->first()->id,
+            'name' => $this->faker->word(),
         ];
     }
 }

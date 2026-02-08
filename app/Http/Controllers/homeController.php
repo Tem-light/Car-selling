@@ -19,7 +19,11 @@ class homeController extends Controller
         $cars=Car::where('published_at','<',now())->with(['primaryImage','city','carType','fuelType','maker','carModel'])->orderBy('published_at','desc')->limit(20)->get();
 
         return view('index',[
-            'cars'=>$cars,
+            'cars' => $cars,
+            'makers' => Maker::all(),
+            'states' => \App\Models\State::all(),
+            'carTypes' => CarType::all(),
+            'fuelTypes' => FuelType::all(),
         ]);
 
     }

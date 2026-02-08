@@ -6,6 +6,9 @@
           <div class="justify items-center flex ">
           <h2>My Favourite Cars</h2>
           @if($cars->total()>0)
+          <div class='pagination-summary ml-4'>
+            <p>Showing {{ $cars->firstItem() }} To {{ $cars->lastItem() }} of {{ $cars->total() }} cars </p>
+          @endif
           </div>
           <div class="car-items-listing">
             @foreach ($cars as $car)

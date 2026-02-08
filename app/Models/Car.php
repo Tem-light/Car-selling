@@ -16,13 +16,12 @@ use App\Models\FuelType;
 use App\Models\Maker;
 use App\Models\CarModel;
 use App\Models\City;
-    
 class Car extends Model
 {
     use HasFactory, SoftDeletes;
     protected $fillable = [
             'maker_id',
-            'model_id',
+            'car_model_id',
             'year',          
             'price',         
             'vin',          
@@ -40,10 +39,11 @@ class Car extends Model
     {
         return $this->belongsTo(CarType::class);
     }
-    public function Features():HasOne
-    {
-        return $this->hasOne(CarFeatures::class);
-    }
+  public function features()
+{
+    return $this->belongsToMany(CarFeature::class);
+}
+
     public function PrimaryImage():HasOne
     {
         return $this->hasOne(CarImage::class)
