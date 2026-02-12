@@ -56,9 +56,20 @@ Route::middleware('auth')->group(function () {
         Route::put('/cars/{car}', [CarController::class, 'update'])->name('cars.update');
         Route::delete('/cars/{car}', [CarController::class, 'destroy'])->name('cars.destroy');
     });
-    Route::get('/cars/watchlist', [CarController::class, 'watchlist'])->name('cars.watchlist');
-    Route::post('/cars/{car}/watchlist', [CarController::class, 'toggleWatchlist'])->name('cars.watchlist.toggle');
-    
+  // Watchlist page
+Route::middleware(['auth'])->group(function () {
+    Route::post('/watchlist/{car}', [CarController::class, 'toggleWatchlist'])
+        ->name('watchlist.toggle');
+
+    Route::get('/watchlist', [CarController::class, 'watchlist'])
+        ->name('cars.watchlist');
+});
+
+// Watchlist toggle
+Route::post('/cars/{car}/toggle-watchlist', [CarController::class, 'toggleWatchlist'])
+    ->middleware('auth')
+    ->name('cars.toggleWatchlist');
+
     // Admin Routes
     Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');

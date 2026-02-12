@@ -79,10 +79,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
 
     ];
+
     public function favoriteCars(): BelongsToMany
     {
-        return $this->belongsToMany(Car::class, 'favorite_cars');
+        return $this->belongsToMany(Car::class, 'favorite_cars', 'user_id', 'car_id')
+                    ->withTimestamps();
     }
+
     public function cars(): HasMany
     {
         return $this->hasMany(Car::class);

@@ -16,6 +16,7 @@ use App\Models\FuelType;
 use App\Models\Maker;
 use App\Models\CarModel;
 use App\Models\City;
+
 class Car extends Model
 {
     use HasFactory, SoftDeletes;
@@ -53,11 +54,12 @@ class Car extends Model
     {
         return $this->hasMany(CarImage::class);
     }
+public function favoritedBy()
+{
+    return $this->belongsToMany(User::class, 'favorites')
+                ->withTimestamps();
+}
 
-    public function FavoredUsers():belongsToMany
-    {
-        return $this->belongsToMany(User::class,'favorite_cars');
-    }
     public function FuelType():belongsTo
     {
         return $this->belongsTo(FuelType::class);
